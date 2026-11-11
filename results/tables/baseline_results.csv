@@ -1,0 +1,5 @@
+model,split,n,rmse,mae,bias
+last_season,val,222,3.9119,3.0424,0.4207
+last_season,test,222,3.7522,3.0072,0.411
+three_year_avg,val,222,3.7296,2.9379,0.2377
+three_year_avg,test,222,3.6561,2.9113,0.3669

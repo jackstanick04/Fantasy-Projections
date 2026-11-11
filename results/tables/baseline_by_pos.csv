@@ -1,0 +1,7 @@
+model,split,n,rmse,mae,bias,position
+last_season,test,51,2.98,2.4337,-0.1362,TE
+last_season,test,62,3.6829,2.8912,1.165,RB
+last_season,test,109,4.0993,3.3416,0.2381,WR
+three_year_avg,test,51,2.7356,2.1767,-0.2267,TE
+three_year_avg,test,109,3.7673,3.0564,0.1122,WR
+three_year_avg,test,62,4.0934,3.2606,1.303,RB
