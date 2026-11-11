@@ -51,7 +51,7 @@ def build_lag_history(stats_path: Path) -> pd.DataFrame:
     raw["fp_per_game"] = np.where(
         raw["games"] >= MIN_GAMES,
         raw["fantasy_points_ppr"] / raw["games"],
-        np.nan,                        # too few games → not a usable prior
+        np.nan,                      
     )
 
     raw = raw.sort_values(["player_id", "season"]).reset_index(drop=True)
@@ -89,15 +89,10 @@ def load_model_table(table_path: Path, lag_df: pd.DataFrame) -> pd.DataFrame:
 # Predictions
 
 def predict_last_season(df: pd.DataFrame) -> pd.Series:
-    """Predict y = last season's PPR per game (fp_lag1)."""
     return df["fp_lag1"].copy()
 
 
 def predict_three_year_avg(df: pd.DataFrame) -> pd.Series:
-    """
-    Predict y = mean of fp_lag1, fp_lag2, fp_lag3, using however many
-    are non-NaN.  Returns NaN only when fp_lag1 is also NaN (no history).
-    """
     lag_cols = ["fp_lag1", "fp_lag2", "fp_lag3"]
     return df[lag_cols].mean(axis=1, skipna=True)
 
